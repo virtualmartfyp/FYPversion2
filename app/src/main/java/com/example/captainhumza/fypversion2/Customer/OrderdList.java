@@ -22,6 +22,11 @@ public class OrderdList extends AppCompatActivity implements OnListFragmentInter
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    private static   Fragment fragment = new DatesListFragmentCustomer();
+    public static void SetFragment(Fragment _fragment)
+    {
+        fragment = _fragment;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class OrderdList extends AppCompatActivity implements OnListFragmentInter
        actionBar.setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager , new AllProductListFragmentCustomer());
+        setupViewPager(viewPager , fragment);
         //setupViewPager(viewPager , new DatesListFragmentCustomer());
        // setupViewPager(viewPager , new ProductListFragmentCustomer());
    /*     tabLayout = (TabLayout) findViewById(R.id.tablayout);
