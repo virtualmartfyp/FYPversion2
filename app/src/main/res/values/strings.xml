@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">FYPversion2</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_customer_home_two">CustomerHomeTwoActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_rider_home">RiderHomeActivity</string>
+    <string name="title_activity_vendor_home">VendorHome</string>
+</resources>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="#FFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:text="Signup"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <!--Org name-->
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="User Name"
+            android:inputType="text"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc" />
+
+        <!--Org address-->
+        <EditText
+            android:id="@+id/fullName"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="Full Name"
+            android:inputType="text"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc" />
+
+
+        <!-- Contact no -->
+        <EditText
+            android:id="@+id/customerPassword"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B" />
+
+        <EditText
+            android:id="@+id/customerContact"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerVertical="true"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:ellipsize="start"
+            android:paddingRight="16dp"
+            android:paddingLeft="16dp"
+            android:hint="Contact number"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:inputType="phone"
+            android:background="@drawable/edittextshape"
+            android:freezesText="true"/>
+
+
+        <EditText
+            android:id="@+id/customerId"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="email"
+            android:inputType="textEmailAddress"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:id="@+id/spinner1"
+            android:background="@drawable/edittextshape"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:hint="User Type"
+            android:layout_height="40dp"
+            android:gravity="center"
+            android:ellipsize="start"
+            android:textAlignment="center"
+
+
+            >
+
+        </Spinner>
+
+        <!-- No of people -->
+
+        <!-- Contact no -->
+        <!--Login Button-->
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_customer_reg"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/buttonshape"
+            android:text="Register"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:layout_height="40dp"
+            android:textColor="#ffffff"
+            android:shadowRadius="5" />
+
+
+    </LinearLayout>
+
+</ScrollView>

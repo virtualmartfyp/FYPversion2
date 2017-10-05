@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:background="#FFFF">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp">
+        <TextView
+            android:text="Payment Details"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <!--Org name-->
+        <EditText
+            android:id="@+id/AcountNumber"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="Account Number"
+            android:inputType="text"
+            android:maxLength="40"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc" />
+
+        <!--Org address-->
+        <EditText
+            android:id="@+id/TotalPayment"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edittextshape"
+            android:ellipsize="start"
+            android:freezesText="true"
+            android:hint="Total Payable"
+            android:inputType="text"
+            android:maxLength="60"
+            android:maxLines="1"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:textColor="#7B869B"
+            android:textColorHint="#cccccc" />
+
+
+        <!-- Contact no -->
+
+
+
+
+
+        <android.support.v7.widget.SwitchCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textOn="Cash on Delivery"
+            android:textOff="Online"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Cash on Delivery"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_customer_reg"
+                android:layout_width="100dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/buttonshape"
+                android:text="Pay"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:shadowRadius="5" />
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="100dp"
+                android:background="@drawable/buttonshape"
+                android:text="Cancel"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:layout_height="40dp"
+                android:textColor="#ffffff"
+                android:shadowRadius="5"
+                android:layout_alignBaseline="@+id/btn_customer_reg"
+                android:layout_alignBottom="@+id/btn_customer_reg"
+                android:layout_toEndOf="@+id/btn_customer_reg"
+                android:layout_marginStart="52dp" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
