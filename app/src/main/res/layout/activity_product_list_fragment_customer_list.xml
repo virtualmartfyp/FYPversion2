@@ -93,8 +93,8 @@
                 android:src="@drawable/addcart1"
                 />
             <ImageView
-                android:layout_width="50dip"
-                android:layout_height="50dip"
+                android:layout_width="40dip"
+                android:layout_height="40dip"
                 android:src="@drawable/addcart2"
                 />
 

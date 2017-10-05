@@ -16,6 +16,9 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.captainhumza.fypversion2.ContactUs;
+import com.example.captainhumza.fypversion2.Customer.CustomerClasses.OrderDetails;
+import com.example.captainhumza.fypversion2.Customer.CustomersFragments.AllProductListFragmentCustomer;
+import com.example.captainhumza.fypversion2.Customer.CustomersFragments.DatesListFragmentCustomer;
 import com.example.captainhumza.fypversion2.MarkStores;
 import com.example.captainhumza.fypversion2.ProfileDesign;
 import com.example.captainhumza.fypversion2.R;
@@ -82,6 +85,7 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             Toast.makeText(this,"In Profile",Toast.LENGTH_SHORT).show();
+            OrderdList.SetFragment(new DatesListFragmentCustomer());
             Intent intent = new Intent(this , OrderdList.class);
             startActivity(intent);
             // Handle the camera action
@@ -102,6 +106,10 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
             Intent intent = new Intent(this , ContactUs.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_marts) {
+            OrderdList.SetFragment(new  AllProductListFragmentCustomer());
+            Intent intent = new Intent(this , OrderdList.class);
             startActivity(intent);
         }
 

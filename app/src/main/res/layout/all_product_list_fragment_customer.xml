@@ -6,14 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.example.captainhumza.fypversion2.Customer.CustomersFragments.AllProductListFragmentCustomer">
 
+    <ExpandableListView
+        android:id="@+id/expandableListView"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
 
 
-    <android.support.v7.widget.RecyclerView
+   <!-- <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:paddingLeft="4dp"
         android:layout_width="0dp"
         android:layout_height="0dp"
         tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp" />
+        tools:layout_editor_absoluteX="8dp" />-->
 
 </android.support.constraint.ConstraintLayout>
