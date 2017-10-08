@@ -1,8 +1,12 @@
 package com.example.captainhumza.fypversion2;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -36,11 +40,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
 
+        Bundle extras = getIntent().getExtras();
+
+        Double lat =0.0;
+        Double lng = 0.0;
+        if (extras != null) {
+            lat = extras.getDouble("lat");
+            lng = extras.getDouble("lng");
+            Toast.makeText(this , lat.toString() , Toast.LENGTH_LONG).show();
+        }
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng sydney = new LatLng(lat , lng);
+
+
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom( new LatLng (lat , lng) , 15));
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Your Selected Location "));
+
     }
 }

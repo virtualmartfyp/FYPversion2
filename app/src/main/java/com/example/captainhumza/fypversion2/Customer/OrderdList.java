@@ -16,13 +16,15 @@ import com.example.captainhumza.fypversion2.Customer.CustomersFragments.ProductL
 import com.example.captainhumza.fypversion2.R;
 import com.example.captainhumza.fypversion2.ViewPagerAdapter;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.DatesListFragmentCustomer.OnListFragmentInteractionListener;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
 
-public class OrderdList extends AppCompatActivity implements OnListFragmentInteractionListener{
+public class OrderdList extends AppCompatActivity implements OnListFragmentInteractionListener , OnMapReadyCallback {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private static   Fragment fragment = new DatesListFragmentCustomer();
+    private static   Fragment fragment = new MapFragement();
     public static void SetFragment(Fragment _fragment)
     {
         fragment = _fragment;
@@ -60,5 +62,10 @@ public class OrderdList extends AppCompatActivity implements OnListFragmentInter
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         setupViewPager(viewPager , new ProductListFragmentCustomer());
         Toast.makeText(this,mItem , Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
     }
 }

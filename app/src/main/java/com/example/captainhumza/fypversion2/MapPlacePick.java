@@ -45,14 +45,15 @@ public class MapPlacePick extends AppCompatActivity {
 //                Intent intent=new Intent(this,MapsActivity.class);
 //                intent.putExtras(args);
 //                startActivity(intent);
-                //   Intent intent = new Intent(this,MapsActivity.class);
-//                Bundle b = new Bundle();
-//                b.putDouble("lat", place.getLatLng().latitude);
-//                b.putDouble("long" , place.getLatLng().longitude);
-//                intent.putExtras(b);
-                //  startActivity(intent);
-
-
+                   Intent intent = new Intent(this,MapsActivity.class);
+                Bundle b = new Bundle();
+                b.putDouble("lat", place.getLatLng().latitude);
+                b.putDouble("long" , place.getLatLng().longitude);
+                intent.putExtras(b);
+                  startActivity(intent);
+//
+//                Intent intent = new Intent(this , MapsActivity.class);
+//                startActivity(intent);
                 Toast.makeText(this , "Your Stored" +place.getName().toString()+ "Added Successfully" , Toast.LENGTH_LONG).show();
 
 

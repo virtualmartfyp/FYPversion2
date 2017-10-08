@@ -72,7 +72,8 @@
         <activity android:name=".ContactUs" />
         <activity android:name=".Vendor.CustomerListforVendor" />
         <activity android:name=".Vendor.RiderDetailsforVendor" />
-        <activity android:name=".Customer.CustomersFragments.AllProductListFragmentCustomer"></activity>
+        <!-- <activity android:name=".Customer.CustomersFragments.AllProductListFragmentCustomer"></activity> -->
+        <activity android:name=".Customer.MapDirections"></activity>
     </application>
 
 </manifest>
