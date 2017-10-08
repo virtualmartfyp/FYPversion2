@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.captainhumza.fypversion2.ContactUs;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.AllProductListFragmentCustomer;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.DatesListFragmentCustomer;
+import com.example.captainhumza.fypversion2.Customer.CustomersFragments.ProductListFragmentCustomer;
 import com.example.captainhumza.fypversion2.MapsActivity;
 import com.example.captainhumza.fypversion2.ProfileDesign;
 import com.example.captainhumza.fypversion2.R;
@@ -38,7 +39,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.util.Map;
 
 public class CustomerHomeTwoActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener , OnMapReadyCallback , DatesListFragmentCustomer.OnListFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener , OnMapReadyCallback
+        , DatesListFragmentCustomer.OnListFragmentInteractionListener  {
 
     LatLng latLng;
      SupportMapFragment map;
@@ -153,11 +155,13 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_camera) {/*
             Toast.makeText(this,"In Profile",Toast.LENGTH_SHORT).show();
-            OrderdList.SetFragment(new DatesListFragmentCustomer());
-            Intent intent = new Intent(this , OrderdList.class);
-            startActivity(intent);
+            OrderdList.SetFragment(new DatesListFragmentCustomer());*/
+            fragment = new DatesListFragmentCustomer();
+            setupViewPager(viewPager , fragment);
+            /*Intent intent = new Intent(this , OrderdList.class);
+            startActivity(intent);*/
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
@@ -184,9 +188,11 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
-            Intent inte = new Intent(this , WalletforCustomer.class);
+            fragment = new MapFragement(0.0 , 0.0);
+            setupViewPager(viewPager , fragment);
+            /*Intent inte = new Intent(this , WalletforCustomer.class);
             startActivity(inte);
-
+*/
         } else if (id == R.id.nav_manage) {
 
             Intent intent = new Intent(this , ProfileDesign.class);
@@ -197,9 +203,11 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
             Intent intent = new Intent(this , ContactUs.class);
             startActivity(intent);
         } else if (id == R.id.nav_marts) {
-            OrderdList.SetFragment(new  AllProductListFragmentCustomer());
+            fragment = new AllProductListFragmentCustomer();
+            setupViewPager(viewPager , fragment);
+            /*OrderdList.SetFragment(new  AllProductListFragmentCustomer());
             Intent intent = new Intent(this , OrderdList.class);
-            startActivity(intent);
+            startActivity(intent);*/
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -225,8 +233,16 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
 
     @Override
     public void onButtonClicked(String mItem) {
-
+        fragment = new ProductListFragmentCustomer();
+        setupViewPager(viewPager , fragment);
     }
+
+   /* @Override
+    public void onButtonClickedMap(Double  lat, Double  lng){
+          fragment = new MapFragement(lat , lng);
+          setupViewPager(viewPager , fragment);
+        String ab = "new";
+    }*/
 
 
 

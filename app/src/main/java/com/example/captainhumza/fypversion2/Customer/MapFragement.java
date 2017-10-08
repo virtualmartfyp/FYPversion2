@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.content.Intent;
 
 import com.example.captainhumza.fypversion2.R;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -26,8 +30,10 @@ public class MapFragement extends Fragment implements  OnMapReadyCallback {
 
     GoogleMap mMap;
   LatLng latLng;
-    Double  lat = 0.0;
-    Double  lng = 0.0;
+    Double  lat = 24.823741700000003;
+    Double  lng = 67.11515829999999;
+    OnMapClickListner listner;
+    View vCus;
     public MapFragement() {
         // Required empty public constructor
     }
@@ -35,13 +41,17 @@ public class MapFragement extends Fragment implements  OnMapReadyCallback {
         this.lat = lat;
         this.lng = lng;
     }
-Context mycon ;
 
+Context mycon ;
+    public PlaceAutocompleteFragment autocompleteFragment;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
- View v=  inflater.inflate(R.layout.fragment_map_fragement, container, false);
+
+  View v=  inflater.inflate(R.layout.fragment_map_fragement, container, false);
         mycon = v.getContext();
+       //autocompleteFragment  = (PlaceAutocompleteFragment)getActivity().getFragmentManager()findViewById(R.place_autocomplete_fragment);
+
         return v;
     }
 
@@ -50,6 +60,26 @@ Context mycon ;
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment mapFragment = (SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        /*autocompleteFragment  = (PlaceAutocompleteFragment)getActivity().getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+        autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+            @Override
+            public void onPlaceSelected(Place place) {
+                // TODO: Get info about the selected place.
+                Double  lat = place.getLatLng().latitude;
+                Double  lng = place.getLatLng().longitude;
+                Bundle agrs = new Bundle();
+                agrs.putDouble("lat" , lat);
+                agrs.putDouble("lng" , lng);
+                //listner.onButtonClickedMap(lat , lng);
+
+            }
+
+            @Override
+            public void onError(Status status) {
+                // TODO: Handle the error.
+
+            }
+        });*/
 
 
 
@@ -61,8 +91,8 @@ Context mycon ;
 
         //LatLng ltlng = new LatLng(0 , 0);
         /*mMap.addMarker(new MarkerOptions().position(latLng).title("Your Current Location"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom( ltlng , 15));*/
-//
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom( ltlng , 15));
+//*/
 //        Bundle getBundle =  getArguments();
 //        Double lat = getBundle.getDouble("lat");
 //        Double lng = getBundle.getDouble("lng");
@@ -74,6 +104,21 @@ Context mycon ;
         mMap.addMarker(new MarkerOptions().position(sydney).title("Your Selected Location "));
 
     }
+   /* @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
 
+        if (context instanceof OnMapClickListner) {
+
+            listner = (OnMapClickListner) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement OnListFragmentInteractionListener");
+        }
+    }*/
+    public interface OnMapClickListner {
+        // TODO: Update argument type and name
+        void onButtonClickedMap(Double  lat, Double  lng);
+    }
 
 }
