@@ -13,6 +13,7 @@
            android:id="@+id/mainSlot_image"
            android:layout_width="80dp"
            android:layout_height="50dp"
+           android:layout_marginLeft="30dp"
            android:src="@drawable/pepsi"/>
        <TextView
            android:id="@+id/listTitle"
@@ -24,13 +25,5 @@
            android:paddingBottom="10dp" />
 
 
-       <TextView
-           android:layout_width="wrap_content"
-           android:layout_height="match_parent"
-           android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
-           android:textColor="@android:color/black"
-           android:paddingTop="10dp"
-           android:paddingBottom="10dp"
-           android:text="Hello World!" />
    </LinearLayout>
 </LinearLayout>

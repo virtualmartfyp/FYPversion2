@@ -1,6 +1,7 @@
 package com.example.captainhumza.fypversion2.Customer.CustomersFragments.ExpandableListDirectory;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -51,9 +52,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_item, null);
         }//main_image
-        ImageView imageView = (ImageView)convertView
+       /* ImageView imageView = (ImageView)convertView
                 .findViewById(R.id.main_image);
-        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(7).decodedByte);
+        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(7).decodedByte);*/
         TextView expandedListTextView = (TextView) convertView
                 .findViewById(R.id.expandedListItem);
         expandedListTextView.setText(expandedListText);
@@ -82,6 +83,19 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     static int ab = 0;
+    public int GetImageIndex(String title)
+    {
+        int res = 0;
+        for (int i = 0; i < ExpandableListDataPump.productCategories.size(); i++)
+        {
+            if(ExpandableListDataPump.productCategories.get(i).productTitle.equals(title)) {
+                res = i;
+                break;
+            }
+        }
+        return res;
+
+    }
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
@@ -93,7 +107,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         }
         ImageView imageView = (ImageView)convertView
                 .findViewById(R.id.mainSlot_image);
-        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(listPosition).decodedByte);
+        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(GetImageIndex(listTitle)).decodedByte);
         TextView listTitleTextView = (TextView) convertView
                 .findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
