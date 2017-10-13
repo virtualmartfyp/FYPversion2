@@ -16,9 +16,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.example.captainhumza.fypversion2.Classes.ProductCategory;
 import com.example.captainhumza.fypversion2.ContactUs;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.AllProductListFragmentCustomer;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.DatesListFragmentCustomer;
+import com.example.captainhumza.fypversion2.Customer.CustomersFragments.ExpandableListDirectory.ExpandableListDataPump;
 import com.example.captainhumza.fypversion2.Customer.CustomersFragments.ProductListFragmentCustomer;
 import com.example.captainhumza.fypversion2.MapsActivity;
 import com.example.captainhumza.fypversion2.ProfileDesign;
@@ -41,8 +43,8 @@ import java.util.Map;
 public class CustomerHomeTwoActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , OnMapReadyCallback
         , DatesListFragmentCustomer.OnListFragmentInteractionListener  {
+    private static CustomerHomeTwoActivity inst;
 
-    LatLng latLng;
      SupportMapFragment map;
    public SupportMapFragment mapFragment;
     public PlaceAutocompleteFragment autocompleteFragment;
@@ -50,7 +52,9 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
     private ViewPager viewPager;
     private static android.support.v4.app.Fragment fragment = new MapFragement();
 
-
+    public static CustomerHomeTwoActivity instance() {
+        return inst;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +62,9 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(null);
-//
+        inst = this;
+        ProductCategory productCategory = new ProductCategory();
+        ExpandableListDataPump.productCategories = productCategory.GetAllProductsCategory();
 //            android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 //        fragmentManager.popBackStack();
 //        fragmentManager.beginTransaction()
@@ -165,20 +171,6 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
-//           FragmentManager fragmentManager = getSupportFragmentManager();
-//        fragmentManager.popBackStack();
-//        fragmentManager.beginTransaction()
-//                .add(R.id.content_frame, new MapFragement() ).commit();
-
-//            android.app.FragmentManager fragMgr = getFragmentManager();
-//            android.app.FragmentTransaction xact = fragMgr.beginTransaction();
-//            if (null == childFragmentManager.findFragmentByTag("fragement")) {
-//                xact.add(R.id.content_frame, MapFragment.newInstance(), "fragement").commit();
-//            }
-
-
-//            Intent intent = new Intent(this , MarkStores.class);
-//            startActivity(intent);
             FragmentManager fm = getChildFragmentManager();
             map = (SupportMapFragment) fm.findFragmentById(R.id.map);
             if (map == null) {
@@ -202,12 +194,15 @@ public class CustomerHomeTwoActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
             Intent intent = new Intent(this , ContactUs.class);
             startActivity(intent);
-        } else if (id == R.id.nav_marts) {
+        } else if (id == R.id.nav_marts) {//nav_Home
             fragment = new AllProductListFragmentCustomer();
             setupViewPager(viewPager , fragment);
             /*OrderdList.SetFragment(new  AllProductListFragmentCustomer());
             Intent intent = new Intent(this , OrderdList.class);
             startActivity(intent);*/
+        }else if (id == R.id.nav_Home) {//nav_Home
+            fragment = new MapFragement();
+            setupViewPager(viewPager , fragment);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

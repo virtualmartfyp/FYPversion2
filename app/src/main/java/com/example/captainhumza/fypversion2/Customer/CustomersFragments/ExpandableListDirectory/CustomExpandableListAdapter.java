@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -49,7 +50,10 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
             LayoutInflater layoutInflater = (LayoutInflater) this.context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_item, null);
-        }
+        }//main_image
+        ImageView imageView = (ImageView)convertView
+                .findViewById(R.id.main_image);
+        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(7).decodedByte);
         TextView expandedListTextView = (TextView) convertView
                 .findViewById(R.id.expandedListItem);
         expandedListTextView.setText(expandedListText);
