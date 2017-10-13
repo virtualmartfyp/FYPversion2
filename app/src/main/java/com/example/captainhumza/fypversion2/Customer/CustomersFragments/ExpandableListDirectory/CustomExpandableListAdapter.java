@@ -81,6 +81,7 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         return listPosition;
     }
 
+    static int ab = 0;
     @Override
     public View getGroupView(int listPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
@@ -90,10 +91,17 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
                     getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = layoutInflater.inflate(R.layout.list_group, null);
         }
+        ImageView imageView = (ImageView)convertView
+                .findViewById(R.id.mainSlot_image);
+        imageView.setImageBitmap(ExpandableListDataPump.productCategories.get(listPosition).decodedByte);
         TextView listTitleTextView = (TextView) convertView
                 .findViewById(R.id.listTitle);
         listTitleTextView.setTypeface(null, Typeface.BOLD);
         listTitleTextView.setText(listTitle);
+        if(ab < 10)
+            ab++;
+        else
+            ab = 0;
         return convertView;
     }
 
@@ -107,9 +115,9 @@ public class CustomExpandableListAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    public void setFilter(List<String> countryModels){
+    public void setFilter(List<String> abc){
         expandableListTitle = new ArrayList<>();
-        expandableListTitle.addAll(countryModels);
+        expandableListTitle.addAll(abc);
         notifyDataSetChanged();
     }
 }
